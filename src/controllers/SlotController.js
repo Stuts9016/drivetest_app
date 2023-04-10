@@ -1,14 +1,12 @@
 import { appointmentModel } from "../models/db.js";
 
-export default (req, res) => {
+export default async (req, res) => {
   const { date } = req.query;
-
-  appointmentModel
-    .find({ date })
-    .then((slotTime) => {
-      res.status(200).send({ date: date, slotTime: slotTime });
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  try {
+    const slotTime = await appointmentModel.find({ date });
+    res.json({ date: date, slotTime: slotTime });
+    return;
+  } catch (err) {
+    console.log(err);
+  }
 };

@@ -4,8 +4,6 @@ import session from "express-session";
 import path from "path";
 import { fileURLToPath } from "url";
 import routes from "./routes/index.js";
-import SlotController from "./controllers/SlotController.js";
-import AddSlotController from "./controllers/AddSlotController.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -49,7 +47,7 @@ app.use((req, res, next) => {
       res.redirect("/");
     }
     if (
-      (req.originalUrl.startsWith("/g") || req.originalUrl.startsWith("/g2")) &&
+      (req.originalUrl === "/g" || req.originalUrl === "/g2") &&
       req.session.userType !== "Driver"
     ) {
       req.session.flash = {
@@ -61,8 +59,8 @@ app.use((req, res, next) => {
     }
   } else {
     if (
-      req.originalUrl.startsWith("/g") ||
-      req.originalUrl.startsWith("/g2") ||
+      req.originalUrl === "/g" ||
+      req.originalUrl === "/g2" ||
       req.originalUrl.startsWith("/dashboard")
     ) {
       req.session.flash = {
@@ -72,17 +70,9 @@ app.use((req, res, next) => {
       res.redirect("/login");
     }
   }
-  
+
   next();
   return;
 });
-// Post Method to add data to the database from appointment page
-app.post("/appointment", AddSlotController);
-
-app.get("/appointment", (req, res) => {
-  res.render("appointment"); // Re-directing to the appointment
-});
-
-app.get("/getSlot", SlotController);
 
 app.use(routes);

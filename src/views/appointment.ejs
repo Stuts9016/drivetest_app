@@ -63,11 +63,11 @@
     console.log("SlotController called");
     const date = document.getElementById("date").value;
     console.log(date);
-    await fetch(`getSlot?date='${date}'zoo`)
-    // .then((res) => res.writeHead(200, {'content-type': 'text/html'})
+    await fetch(`/getSlot?date='${date}'zoo`)
+      // .then((res) => res.writeHead(200, {'content-type': 'text/html'})
       .then((res) => res.json())
       .then((data) => {
-        console.log("data",data);
+        console.log("data", data);
         const time = document.getElementById("time");
         time.innerHTML = "";
         const option = document.createElement("option");

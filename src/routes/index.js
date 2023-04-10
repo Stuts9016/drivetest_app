@@ -2,6 +2,8 @@ import { Router } from "express";
 import AuthController from "../controllers/auth_controller.js";
 import UserController from "../controllers/user_controller.js";
 import { DrivingTest, User, appointmentModel } from "../models/db.js";
+import AddSlotController from "../controllers/AddSlotController.js";
+import SlotController from "../controllers/SlotController.js";
 
 const router = Router();
 
@@ -140,5 +142,14 @@ router.get("/dashboard", (req, res) => {
 router.get("/signup", (req, res) => {
   res.render("signup"); // Re-directing to the signup
 });
+
+// Post Method to add data to the database from appointment page
+router.post("/appointment", AddSlotController);
+
+router.get("/appointment", (req, res) => {
+  res.render("appointment"); // Re-directing to the appointment
+});
+
+router.get("/getSlot", SlotController);
 
 export default router;
