@@ -1,0 +1,179 @@
+body {
+  background-image: url("https://static.vecteezy.com/system/resources/thumbnails/003/031/750/small/dark-blue-wide-background-with-radial-blurred-gradient-vector.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+/* Creating h2 style for all pages */
+body h2 {
+  margin-top: 120px;
+  text-align: center;
+  color: white;
+}
+
+body h3 {
+  color: white;
+}
+
+/* Styling the Navbar */
+.navbar {
+  background-color: #031f7e;
+}
+.error {
+  color: red;
+  font-size: 15px;
+  text-align: center;
+  margin-top: 16px;
+}
+.navbar a {
+  color: white;
+  float: left;
+}
+
+.navbar a:hover {
+  background-color: white;
+  color: black;
+}
+
+.container {
+  background-color: #031f7e;
+  margin-top: 430px;
+  display: flex;
+  flex: 5 5 auto;
+}
+
+.dashboard h1 {
+  color: white;
+  text-align: center;
+  margin-top: 300px;
+  font-size: 70px;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+/* Adding CSS for all the forms in the pages */
+.form {
+  border: #000000 solid 2px;
+  padding: 0 2em 1em;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  background: rgba(1, 1, 1, 0.4);
+}
+
+.form h3 {
+  color: white;
+}
+
+.form-control {
+  margin-bottom: 12px;
+}
+
+.LoginFormText {
+  text-align: center;
+  padding-top: 15px;
+  color: white;
+}
+
+.G2FormText {
+  text-align: center;
+  padding-top: 15px;
+  color: white;
+}
+
+.GFormText {
+  text-align: center;
+  padding-top: 15px;
+  color: white;
+  text-transform: uppercase;
+}
+
+.signup {
+  color: white;
+}
+
+.dropdown {
+  color: black;
+  width: 100%;
+  padding: 6px 12px;
+}
+
+.form-label{
+  color: white;
+  margin-top: 20px;
+}
+
+.form-appointment{
+  filter: blur(rgba(0, 0, 0, 0.144));
+ margin-top:30%;
+  width: 100%;
+  padding: 20px;
+  margin-left: 50%;
+}
+
+/* Styling for Button */
+.btn {
+  width: 30%;
+  background-color: rgb(116, 109, 109);
+  color: white;
+  margin-top: 30px;
+}
+
+.btn:hover {
+  background-color: #031f7e;
+  color: white;
+}
+
+.btnsignup {
+  margin-top: 20px;
+}
+
+.button{
+  width: 300px;
+  background-color:black;
+  color: white;
+  margin-top: 30px;
+  margin-bottom: 25px;
+  margin-left: 25%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.button:hover {
+  background-color: #031f7e;
+  color: white;
+}
+
+
+/* CSS for Footer */
+
+.foo-container {
+  background-color: #031f7e;
+  color: white;
+  margin-top: 300px;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.row h6 {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.row {
+  margin: auto;
+}
+
+.section .row {
+  align-items: center;
+}
+
+.foo-container a {
+  color: white;
+}
+
+.error-container {
+  background-color: rgba(255, 0, 0, 0.489);
+  width: 100%;
+}

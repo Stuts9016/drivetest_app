@@ -1,0 +1,139 @@
+<!-- Creating G2 Test Page -->
+<!-- Adding Header -->
+<%- include('partials/header.ejs') %>
+
+<!-- Adding Navbar -->
+<%- include('partials/navbar.ejs') %>
+
+<body class="G2_Test_Form">
+  <h2>G2 TEST FORM</h2>
+  <form class="form" action="/addG2" method="post">
+    <h3>PERSONAL INFORMATION</h3>
+
+    <hr />
+    <!-- First Name input -->
+    <div class="col-auto">
+      <label class="G2FormText">First Name</label>
+      <input
+        type="text"
+        class="G2_form form-control center-block"
+        name="FirstName"
+        placeholder="First Name"
+        value="<%= info.firstname %>"
+        disabled
+      />
+    </div>
+
+    <!-- Last Name input -->
+    <div class="col-auto">
+      <label class="G2FormText">Last Name</label>
+      <input
+        type="text"
+        class="G2_form form-control center-block"
+        name="LastName"
+        placeholder="Last Name"
+        value="<%= info.lastname %>"
+        disabled
+      />
+    </div>
+
+    <!-- Creating Age Input with Number type -->
+    <div class="col-auto">
+      <label class="G2FormText">Age</label>
+      <input
+        type="number"
+        class="G2_form form-control center-block"
+        name="Age"
+        placeholder="Age"
+        value="<%= info.age %>"
+        disabled
+      />
+    </div>
+
+    <h3>CAR INFORMATION</h3>
+
+    <hr />
+
+    <div class="col-auto">
+      <label class="G2FormText">Make</label>
+      <input
+        type="text"
+        class="G2_form form-control center-block"
+        name="make"
+        placeholder="Make"
+        value="<%= info.carInfo.make %>"
+      />
+    </div>
+
+    <!-- Adding Car Information -->
+    <div class="col-auto">
+      <label class="G2FormText">Model Name</label>
+      <input
+        type="text"
+        class="G2_form form-control center-block"
+        name="modelName"
+        placeholder="Car Model Name"
+        value="<%= info.carInfo.modelName %>"
+      />
+    </div>
+
+    <div class="col-auto">
+      <label class="G2FormText">Model Year</label>
+      <input
+        type="number"
+        class="G2_form form-control center-block"
+        name="modelYear"
+        placeholder="Car Model Year"
+        value="<%= info.carInfo.modelYear %>"
+      />
+    </div>
+
+    <div class="col-auto">
+      <label class="G2FormText">Plate Number</label>
+      <input
+        type="number"
+        class="G2_form form-control center-block"
+        name="plateNumber"
+        placeholder="Car Plate Number"
+        value="<%= info.carInfo.plateNumber %>"
+      />
+    </div>
+
+    <div class="col-auto">
+      <label class="G2FormText">Appointment Date</label>
+      <input
+        type="date"
+        id="date"
+        class="G2_form form-control center-block"
+        onchange="fecthslot()"
+        name="date"
+        placeholder="Appointment Date"
+        value="<%= info.carInfo.date %>"
+      />
+    </div>
+
+    <div class="col-auto">
+      <label class="G2FormText">Slot Time</label>
+      <input
+      
+        name="time" 
+        id="time"
+        class="G2_form form-control center-block"
+        onchange="fecthslot()"
+        value="<%= info.carInfo.time %>"
+      />
+    </div>
+
+    <div class="col-auto">
+      <input
+        type="submit"
+        id="g2btn"
+        class="btn btn-outline-primary center-block"
+        name="btn"
+        value="Submit"
+      />
+    </div>
+  </form>
+  <!-- Adding Footer -->
+  <%- include('partials/footer.ejs') %>"
+</body>

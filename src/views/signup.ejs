@@ -1,0 +1,79 @@
+<!-- Creating G2 Test Page -->
+<!-- Adding Header -->
+<%- include('partials/header.ejs') %>
+
+<!-- Adding Navbar -->
+<%- include('partials/navbar.ejs') %>
+
+<body class="signup">
+  <!-- Header -->
+  <h2>WELCOME TO THE DRIVE TEST KIOSK</h2>
+  <form class="form" action="/signup" method="post">
+    <h3>SIGN UP FORM</h3>
+
+    <hr />
+    <div class="col-auto">
+      <label for="username" class="form-label">User Name</label>
+      <input
+        type="text"
+        class="G2_form form-control center-block"
+        id="username"
+        name="username"
+        required
+      />
+    </div>
+    <div class="col-auto">
+      <label for="email" class="form-label">Email address</label>
+      <input
+        type="email"
+        class="G2_form form-control center-block"
+        id="email"
+        name="email"
+        required
+      />
+    </div>
+    <div class="col-auto">
+      <label for="password" class="form-label">Password</label>
+      <input
+        type="password"
+        class="G2_form form-control center-block"
+        id="password"
+        name="password"
+        required
+      />
+    </div>
+
+    <div class="col-auto">
+      <label for="repass" class="form-label">Retype - Password</label>
+      <input
+        type="password"
+        class="G2_form form-control center-block"
+        id="repass"
+        name="repass"
+        required
+      />
+    </div>
+
+    <!-- dropdown for the options of Examiner, Driver, Admin -->
+    <div class="col-auto">
+      <label for="userType" class="form-label">UserType</label>
+      <select
+        class="G2_form form-select center-block dropdown"
+        aria-label="Default select example"
+        id="userType"
+        name="userType"
+        required
+      >
+        <option value="Examiner">Examiner</option>
+        <option value="Driver" selected>Driver</option>
+        <option value="Admin">Admin</option>
+      </select>
+
+      <div class="col-auto">
+        <button type="submit" class="btn btn-primary btnsignup">Signup</button>
+      </div>
+    </div>
+  </form>
+  <!-- Adding Footer -->
+  <%- include('partials/footer.ejs') %>
+</body>

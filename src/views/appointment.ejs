@@ -1,0 +1,99 @@
+<!-- Creating G2 Test Page -->
+<!-- Adding Header -->
+<%- include('partials/header.ejs') %>
+
+<!-- Adding Navbar -->
+<%- include('partials/navbar.ejs') %>
+
+<body class="G2_Test_Form">
+  <div class="h-100 mt-5">
+    <div class="row h-100 justify-content-center align-items-center">
+      <div class="col-10 col-md-8 col-lg-6">
+        <% if(typeof error !== "undefined"){ %>
+        <p class="text-center text-danger"><%= error %></p>
+        <% } %>
+
+        <div class="form form-appointment p-3 mb-5 bg-white rounded">
+          <form method="POST" action="/appointment">
+            <!-- Date input -->
+            <div class="form-outline mb-4">
+              <label class="form-label" for="date"> Appointment Date</label>
+              <input
+                type="date"
+                id="date"
+                onchange="SlotController()"
+                name="date"
+                class="form-control"
+              />
+            </div>
+
+            <!-- Timeslot input -->
+            <div class="form-outline mb-4">
+              <label class="form-label" for="time">Time Slot</label>
+              <select
+                class="form-select mx-3"
+                id="time"
+                name="time"
+                aria-label="Default select example"
+              >
+                <option selected>Select Time Slot</option>
+              </select>
+            </div>
+
+            <!-- Submit button -->
+            <button
+              type="submit"
+              style="background-color: #1c2331"
+              class="button btn-white btn-block mb-4 mt-5 text-white"
+            >
+              Create Slot
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Adding Footer -->
+  <%- include('partials/footer.ejs') %>
+</body>
+
+<script>
+  async function SlotController() {
+    console.log("SlotController called");
+    const date = document.getElementById("date").value;
+    console.log(date);
+    await fetch(`getSlot?date='${date}'zoo`)
+    // .then((res) => res.writeHead(200, {'content-type': 'text/html'})
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("data",data);
+        const time = document.getElementById("time");
+        time.innerHTML = "";
+        const option = document.createElement("option");
+        var disabledSlots = [];
+        data.slotTime.forEach((slot) => {
+          disabledSlots.push(slot["time"]);
+        });
+        const slots = [
+          "10:00",
+          "11:00",
+          "12:00",
+          "1:00",
+          "2:00",
+          "3:00",
+          "4:00",
+          "5:00",
+        ];
+        slots.forEach((slot) => {
+          const option = document.createElement("option");
+          option.value = slot;
+          option.innerHTML = slot;
+          if (disabledSlots.includes(slot)) {
+            option.disabled = true;
+          }
+          time.appendChild(option);
+        });
+      });
+  }
+</script>

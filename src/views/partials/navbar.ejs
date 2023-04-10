@@ -1,0 +1,32 @@
+<!-- Creating Navbar -->
+<nav class="navbar">
+  <div class="navbar-header">
+    <!-- Creating Navbar Header -->
+    <a class="navbar-brand" href="/dashboard">Book DriveTest</a>
+  </div>
+  <ul class="nav navbar-nav">
+    <!-- Navbar links -->
+    <% if (session.userType === 'Driver') { %>
+    <li><a href="/g">G_Test</a></li>
+    <li><a href="/g2">G2_Test</a></li>
+    <% } %>
+
+    <% if (session.userType === 'Admin') { %>
+      <li><a href="/login">Login</a></li>
+      <li><a href="/appointment">Appointment</a></li>
+      <% } %>
+    
+    <% if(!session.userType) { %>
+    <li><a href="/login">Login</a></li>
+    <li><a href="/signup">Sign Up</a></li>
+    <% } else { %>
+    <li><a href="/logout">Logout</a></li>
+    <% } %>
+  </ul>
+</nav>
+
+<% if (locals.flash) { %>
+<div class="alert alert-<%= flash.type %> text-center">
+  <div class="<%= flash.type %>"><%= flash.message %></div>
+</div>
+<% } %>

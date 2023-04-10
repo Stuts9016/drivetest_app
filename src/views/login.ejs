@@ -1,0 +1,44 @@
+<%- include('partials/header.ejs') %> <%- include('partials/navbar.ejs') %>
+
+<body class="LoginForm">
+  <!-- Header -->
+  <h2>LOGIN FORM</h2>
+  <form class="form" method="post" action="/login">
+    <!-- Email input -->
+    <div class="col-auto">
+      <label for="usr_email" class="LoginFormText">Email</label>
+      <input
+        type="text"
+        name="email"
+        required
+        class="form-control center-block"
+        id="usr_email"
+        placeholder="E-Mail"
+      />
+    </div>
+    <!-- Password Input -->
+    <div class="col-auto">
+      <label for="usr_pwd" class="LoginFormText">Password</label>
+      <input
+        type="password"
+        required
+        name="password"
+        class="form-control center-block"
+        id="usr_pwd"
+        placeholder="Password"
+      />
+    </div>
+
+    <!-- Submit Button -->
+    <div class="col-auto">
+      <input
+        type="submit"
+        id="loginbtn"
+        class="btn btn-outline-primary center-block"
+        value="Submit"
+      />
+    </div>
+  </form>
+
+  <%- include('partials/footer.ejs') %>
+</body>
