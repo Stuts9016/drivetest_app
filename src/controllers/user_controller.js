@@ -1,5 +1,5 @@
 import { hash } from "bcrypt";
-import { User } from "../models/db.js";
+import { User,appointmentModel } from "../models/db.js";
 
 class UserController {
   static async getCurrentUser(req, res) {
@@ -18,6 +18,8 @@ class UserController {
       modelYear,
       plateNumber,
       make,
+      date,
+      time
     } = req.body;
 
     const user = await User.findOne({ _id: req.session.uid });
@@ -45,7 +47,9 @@ class UserController {
         !modelName ||
         !modelYear ||
         !plateNumber ||
-        !make
+        !make ||
+        !date ||
+        !time
       ) {
         req.session.flash = {
           type: "danger",
@@ -89,6 +93,34 @@ class UserController {
         _id: req.session.uid,
       },
       updateData
+    );
+    appointmentModel.find(
+      {
+        $and: [
+          {
+            date: date,
+            time: time,
+          },
+        ],
+      },
+      (error, data) => {
+        if (error || !data) {
+          console.log(error);
+        } else {
+          // res.end(html);
+          // console.log(form_data);
+          appointmentModel.findByIdAndUpdate(
+            data[0]._id,
+            { isTimeSlotAvailable: false },
+            (error, updated) => {
+              if (error || !updated) {
+                console.log(error);
+              } 
+              
+            }
+          );
+        }
+      }
     );
     req.session.flash = {
       type: "success",

@@ -14,7 +14,7 @@ app.set("view engine", "ejs"); // Setting EJS
 app.set("views", path.join(__dirname, "./views"));
 
 app.listen(5500, () => {
-  console.log("Server is running on port 55g00"); // Running The Server
+  console.log("Server is running on port 5500"); // Running The Server
 });
 
 app.use(bodyParser.urlencoded({ extended: true })); // Always use this before route

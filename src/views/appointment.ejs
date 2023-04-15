@@ -21,7 +21,7 @@
               <input
                 type="date"
                 id="date"
-                onchange="SlotController()"
+                onchange="GetSlotController()"
                 name="date"
                 class="form-control"
               />
@@ -59,11 +59,11 @@
 </body>
 
 <script>
-  async function SlotController() {
-    console.log("SlotController called");
+  async function GetSlotController() {
+    // console.log("SlotController called");
     const date = document.getElementById("date").value;
     console.log(date);
-    await fetch(`/getSlot?date='${date}'zoo`)
+    await fetch(`/getDateAndTimeSlot?date=${date}`)
       // .then((res) => res.writeHead(200, {'content-type': 'text/html'})
       .then((res) => res.json())
       .then((data) => {
@@ -76,14 +76,14 @@
           disabledSlots.push(slot["time"]);
         });
         const slots = [
-          "10:00",
-          "11:00",
-          "12:00",
-          "1:00",
-          "2:00",
-          "3:00",
-          "4:00",
-          "5:00",
+          "01:00",
+          "02:00",
+          "03:00",
+          "04:00",
+          "05:00",
+          "06:00",
+          "07:00",
+          "08:00",
         ];
         slots.forEach((slot) => {
           const option = document.createElement("option");

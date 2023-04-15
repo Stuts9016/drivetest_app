@@ -2,7 +2,7 @@ import { Router } from "express";
 import AuthController from "../controllers/auth_controller.js";
 import UserController from "../controllers/user_controller.js";
 import { DrivingTest, User, appointmentModel } from "../models/db.js";
-import AddSlotController from "../controllers/AddSlotController.js";
+import AddSlotDateController from "../controllers/AddSlotDateController.js";
 import SlotController from "../controllers/SlotController.js";
 
 const router = Router();
@@ -38,6 +38,7 @@ router.get("/viewDetail", (req, res) => {
           if (error) {
             console.log(error);
           } else {
+            // Appointment Model to update the time slot
             appointmentModel.find(
               {
                 $and: [
@@ -144,12 +145,13 @@ router.get("/signup", (req, res) => {
 });
 
 // Post Method to add data to the database from appointment page
-router.post("/appointment", AddSlotController);
+router.post("/appointment", AddSlotDateController);
 
 router.get("/appointment", (req, res) => {
   res.render("appointment"); // Re-directing to the appointment
 });
 
-router.get("/getSlot", SlotController);
+router.get("/getDateAndTimeSlot", SlotController);
+
 
 export default router;

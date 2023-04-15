@@ -132,3 +132,33 @@
   <!-- Adding Footer -->
   <%- include('partials/footer.ejs') %>
 </body>
+<script>
+  async function fecthslot() {
+    const date = document.getElementById("date").value;
+    await fetch(`/getDateAndTimeSlot?date=${date}`)
+      .then((res) =>res.json())
+      .then((data) =>{
+          const time = document.getElementById("time");
+          time.innerHTML = "";
+          var disabledSlots=[];
+          (data.slotTime).forEach(slot => {
+              if(slot['isTimeSlotAvailable'] == false)
+                  {
+                      disabledSlots.push(slot['time']);
+                  }
+              const option = document.createElement("option");
+              option.value = slot['time'];
+              option.innerHTML = slot['time'];
+              if(disabledSlots.includes(slot['time'])){
+                  option.disabled = true;
+              }
+
+              time.appendChild(option);
+
+          });
+
+      });
+
+  }
+</script>
+
